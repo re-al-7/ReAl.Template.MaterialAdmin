@@ -1,0 +1,127 @@
+﻿@model IEnumerable<Test.CoreMvc.Dal.Entidades.EntSegUsuario>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="block-header">
+    <h2>@ViewData["Title"]</h2>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>
+            Listado 
+            <small>Basic example without any additional modification classes</small>
+        </h2>        
+        <a asp-action="Create" title="Nuevo" class="btn btn-primary waves-effect">
+            <i class="zmdi zmdi-collection-plus"></i>
+        </a>
+    </div>
+
+    <div class="card-body card-padding">
+        <table id="miTabla" data-toggle="table" data-show-columns="true" data-pagination="true"
+               data-search="true" data-show-toggle="true" data-sortable="true"
+               data-page-size="25" data-pagination-v-align="both" data-show-export="true">
+            <thead>
+            <tr>                                    
+                <th data-halign="center">@Html.DisplayNameFor(model => model.login)</th>
+                <th data-halign="center">@Html.DisplayNameFor(model => model.nombre)</th>
+                <th data-halign="center">@Html.DisplayNameFor(model => model.paterno)</th>
+                <th data-halign="center" data-align="center" data-width="150px">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>                                    
+                    <td>@Html.DisplayFor(modelItem => item.login)</td>
+                    <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.paterno)</td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })*@
+                        <a asp-action="Edit" asp-route-id="@item.id_usuario"
+                           title="Editar" class="btn btn-primary waves-effect"><i class="zmdi zmdi-edit"></i>
+                        </a>
+
+                        <a class="btn btn-success waves-effect" data-id="@item.id_usuario"
+                           data-toggle="modal" data-target="#currentdetail" title="Ver Detalles">
+                            <i class='zmdi zmdi-more'></i>
+                        </a>
+
+                        <a class="btn btn-warning waves-effect" data-container="body"
+                           data-toggle="popover" data-trigger="click"
+                           data-placement="left" data-html="true" title="Auditoria"
+                           data-content='<b>Usuario Creacion:</b> @item.usucre <br />
+														 <b>Fecha Creacion:</b> @item.feccre <br />
+														 <b>Usuario Modificacion:</b> @item.usumod <br />
+														 <b>Fecha Modificacion:</b> @item.fecmod <br />
+														 <b>Estado:</b> @item.apiestado '>
+                            <i class='zmdi zmdi-search-in-file'></i>
+                        </a>
+                    </td>
+                </tr>
+            }                            
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<!-- Detail Modal -->
+<div class="modal fade" id="currentdetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Detalle del registro</h4>
+            </div>
+            <div class="modal-body">
+                <div id="editor-content-container"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+@section Scripts
+{
+    <script>
+        //DataTable
+        $('#miTabla').bootstrapTable();
+
+        //Details
+        $(function () {
+            $('.editor-container').click(function () {
+                var pid = $(this).attr('data-id');
+                var url = "/Home/Details/" + pid;
+                $.ajax({
+                    url: url,
+                    cache: false,
+                    success: function (data) {
+                        $('#editor-content-container').html(data);
+                        $('#currentdetail').modal('show');
+                    }
+                });
+            });
+
+            $('#editor-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+        });
+
+        function success(data, status, xhr) {
+            $('#editor-container').modal('hide');
+        }
+
+        function failure(xhr, status, error) {
+            $('#editor-container').modal('show');
+        }        
+    </script>
+}

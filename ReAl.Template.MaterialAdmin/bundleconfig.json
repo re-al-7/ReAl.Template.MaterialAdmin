@@ -1,0 +1,33 @@
+﻿[
+  {
+    "outputFileName": "wwwroot/css/integrate.min.css",
+    "inputFiles": [
+      "wwwroot/lib/animate.css/animate.min.css",
+      "wwwroot/lib/sweetalert2/dist/sweetalert2.min.css",
+      "wwwroot/lib/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
+      "wwwroot/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css",
+      "wwwroot/lib/bootstrap-table/dist/bootstrap-table.min.css",
+      "wwwroot/css/app_1.min.css",
+      "wwwroot/css/app_2.min.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/integrate.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery/dist/jquery.min.js",
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "wwwroot/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js",
+      "wwwroot/lib/Waves/dist/waves.min.js",
+      "wwwroot/material-admin/bootstrap-growl/bootstrap-growl.min.js",
+      "wwwroot/lib/sweetalert2/dist/sweetalert2.min.js",
+      "wwwroot/lib/autosize/dist/autosize.min.js",
+      "wwwroot/lib/bootstrap-table/dist/bootstrap-table.min.js",
+      "wwwroot/js/app.min.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]
