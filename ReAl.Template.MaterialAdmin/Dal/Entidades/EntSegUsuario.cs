@@ -14,20 +14,13 @@
 
 
 #region
+
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Numerics;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Text;
-using System.Xml.Serialization;
-using System.Runtime.Serialization;
 using System.Security.Claims;
+
 #endregion
 
-namespace Test.CoreMvc.Dal.Entidades
+namespace ReAl.Template.MaterialAdmin.Dal.Entidades
 {
 	public class EntSegUsuario : ClaimsIdentity
     {

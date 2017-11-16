@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Security.Principal;
-using System.Threading.Tasks;
 
-namespace Test.CoreMvc.Helpers
+namespace ReAl.Template.MaterialAdmin.Helpers
 {
     public static class IdentityExtensions
     {

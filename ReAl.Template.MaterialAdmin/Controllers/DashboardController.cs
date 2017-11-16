@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using Test.CoreMvc.Dal.Entidades;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Test.CoreMvc.Controllers
+namespace ReAl.Template.MaterialAdmin.Controllers
 {
     [Authorize]
     public class DashboardController : BaseController

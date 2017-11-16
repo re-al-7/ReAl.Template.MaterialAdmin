@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Authorization;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Test.CoreMvc.Dal.Entidades;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
-using Test.CoreMvc.Helpers;
+using ReAl.Template.MaterialAdmin.Dal.Entidades;
+using ReAl.Template.MaterialAdmin.Helpers;
 
-namespace Test.CoreMvc.Controllers
+namespace ReAl.Template.MaterialAdmin.Controllers
 {
     public class BaseController : Controller
     {

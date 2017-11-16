@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Test.CoreMvc.Dal.Entidades;
+using ReAl.Template.MaterialAdmin.Dal.Entidades;
 
-namespace Test.CoreMvc.Controllers
+namespace ReAl.Template.MaterialAdmin.Controllers
 {
     public class SegUsuarioController : BaseController
     {

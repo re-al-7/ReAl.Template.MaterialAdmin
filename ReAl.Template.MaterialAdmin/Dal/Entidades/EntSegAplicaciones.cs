@@ -14,20 +14,14 @@
 
 
 #region
+
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.IO;
-using System.Numerics;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Text;
-using System.Xml.Serialization;
-using System.Runtime.Serialization;
+
 #endregion
 
-namespace Test.CoreMvc.Dal.Entidades
+namespace ReAl.Template.MaterialAdmin.Dal.Entidades
 {
 	[Table("segaplicaciones")]
 	public class EntSegAplicaciones

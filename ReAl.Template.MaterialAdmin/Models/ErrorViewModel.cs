@@ -1,6 +1,4 @@
-using System;
-
-namespace Test.CoreMvc.Models
+namespace ReAl.Template.MaterialAdmin.Models
 {
     public class ErrorViewModel
     {

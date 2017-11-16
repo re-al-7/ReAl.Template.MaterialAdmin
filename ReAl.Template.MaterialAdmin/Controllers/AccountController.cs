@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Test.CoreMvc.Dal.Entidades;
+using ReAl.Template.MaterialAdmin.Dal.Entidades;
 
-namespace Test.CoreMvc.Controllers
+namespace ReAl.Template.MaterialAdmin.Controllers
 {
     public class AccountController : Controller
     {
