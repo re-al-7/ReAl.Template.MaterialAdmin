@@ -21,15 +21,18 @@ build_script:
     - cmd: dotnet publish ./ReAl.Template.MaterialAdmin/ReAl.Template.MaterialAdmin.csproj
 after_build:
     # For once the build has completed
+    
 artifacts:
-- path: '\ReAl.Template.MaterialAdmin\bin\Debug\netcoreapp2.0\publish'
+    - path: '\ReAl.Template.MaterialAdmin\bin\Debug\netcoreapp2.0\publish'
   name: MaterialAdmin
 
 clone_depth: 1
 on_finish :
-    # any cleanup in here
-    - cmd: ./ReAl.Template.MaterialAdmin/before-deploy.ps1
+    # any cleanup in here    
 
+before_deploy:
+    - ps: ./ReAl.Template.MaterialAdmin/before-deploy.ps1    
+    
 deploy:
 - provider: WebDeploy
   artifact: MaterialAdmin
