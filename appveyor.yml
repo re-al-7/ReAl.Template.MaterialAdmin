@@ -13,11 +13,10 @@ install:
     
     npm install -g bower
     
-    dir
 build:
   verbosity: minimal
 after_build:
-- cmd: dotnet publish ReAl.Template.MaterialAdmin --output %appveyor_build_folder%\dist
+- cmd: dotnet publish  --output %appveyor_build_folder%\dist
 artifacts:
 - path: dist
   name: dist.web
