@@ -16,7 +16,7 @@ install:
 build:
   verbosity: minimal
 after_build:
-- cmd: dotnet publish ReAl.Template.MaterialAdmin.sln --output %appveyor_build_folder%\dist
+- cmd: dotnet publish ReAl.Template.MaterialAdmin\ReAl.Template.MaterialAdmin.csproj --output %appveyor_build_folder%\dist
 artifacts:
 - path: dist
   name: dist.web
