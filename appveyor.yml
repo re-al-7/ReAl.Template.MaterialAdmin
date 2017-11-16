@@ -39,5 +39,5 @@ deploy:
   aspnet_core_force_restart: true
   app_offline: true
   remove_files: false
-    on:
+  on:
       branch: master
