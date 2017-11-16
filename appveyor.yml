@@ -12,6 +12,8 @@ install:
     dotnet restore ReAl.Template.MaterialAdmin.sln
     
     npm install -g bower
+    
+    dir
 build:
   verbosity: minimal
 after_build:
