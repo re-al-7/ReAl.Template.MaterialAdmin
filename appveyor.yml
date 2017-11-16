@@ -23,9 +23,15 @@ after_build:
     # For once the build has completed
 artifacts:
 - path: '\ReAl.Template.MaterialAdmin\bin\Debug\netcoreapp2.0\publish'
-  name: dist.web
+  name: MaterialAdmin
 
 clone_depth: 1
 on_finish :
   # any cleanup in here
-deploy: off
+deploy:
+  - provider: Environment
+    name: MaterialAdmin
+    artifact: MaterialAdmin
+    remove_files: false
+    on:
+      branch: master
