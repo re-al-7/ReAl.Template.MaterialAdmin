@@ -31,11 +31,13 @@ on_finish :
     # any cleanup in here    
 
 before_deploy:
-    - ps: ./ReAl.Template.MaterialAdmin/before-deploy.ps1    
     
 deploy:
-- provider: WebDeploy
+- provider: Environment
   artifact: MaterialAdmin
   aspnet_core: true
   aspnet_core_force_restart: true
   app_offline: true
+  remove_files: false
+    on:
+      branch: master
