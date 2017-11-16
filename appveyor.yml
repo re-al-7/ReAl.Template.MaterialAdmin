@@ -27,11 +27,12 @@ artifacts:
 
 clone_depth: 1
 on_finish :
-  # any cleanup in here
+    # any cleanup in here
+    - cmd: ./ReAl.Template.MaterialAdmin/before-deploy.ps1
+
 deploy:
-  - provider: Environment
-    name: MaterialAdmin
-    artifact: MaterialAdmin
-    remove_files: false
-    on:
-      branch: master
+- provider: WebDeploy
+  artifact: MaterialAdmin
+  aspnet_core: true
+  aspnet_core_force_restart: true
+  app_offline: true
