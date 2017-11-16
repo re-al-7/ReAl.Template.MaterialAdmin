@@ -34,8 +34,7 @@ before_deploy:
     
 deploy:
 - provider: Environment
-  name: MaterialAdminDeploy
-  artifact: MaterialAdmin
+  name: production
   aspnet_core: true
   aspnet_core_force_restart: true
   app_offline: true
