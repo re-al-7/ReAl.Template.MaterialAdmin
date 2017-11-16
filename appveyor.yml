@@ -9,7 +9,7 @@ install:
     
     ping api.nuget.org
 
-    dotnet restore
+    dotnet restore ReAl.Template.MaterialAdmin.sln
 
     npm install -g bower
 build:
