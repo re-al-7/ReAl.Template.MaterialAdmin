@@ -13,8 +13,8 @@ namespace ReAl.Template.MaterialAdmin.Controllers
             if (app != "")
                 HttpContext.Session.SetString("currentApp", app);
 
-            ViewBag.ListApp = this.getAplicaciones();
-            ViewBag.ListPages = this.getPages();
+            ViewBag.ListApp = this.GetAplicaciones();
+            ViewBag.ListPages = this.GetPages();
             ViewData["Usuario"] = this.getUserName();
 
             ViewData["app"] = "Your contact page.";

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using ReAl.Template.MaterialAdmin.Dal.Entidades;
 using ReAl.Template.MaterialAdmin.Helpers;
 
-namespace ReAl.Template.MaterialAdmin.Controllers
+namespace ReAl.Template.MaterialAdmin.Models
 {
-    public class BaseController : Controller
+    public class BasePageModel : PageModel
     {
         public string getLogin()
         {

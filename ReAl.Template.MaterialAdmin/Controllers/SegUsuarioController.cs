@@ -11,8 +11,8 @@ namespace ReAl.Template.MaterialAdmin.Controllers
         // GET: SegUsuario
         public ActionResult Index()
         {
-            ViewBag.ListApp = this.getAplicaciones();
-            ViewBag.ListPages = this.getPages();
+            ViewBag.ListApp = this.GetAplicaciones();
+            ViewBag.ListPages = this.GetPages();
             ViewData["Usuario"] = this.getUserName();
 
             List<EntSegUsuario> lista = new List<EntSegUsuario>();
