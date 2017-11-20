@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -54,6 +55,28 @@ namespace ReAl.Template.MaterialAdmin
             //Session
             services.AddDistributedMemoryCache();
             services.AddSession();
+            
+            //Compression
+            services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
+            services.AddResponseCompression(options =>
+            {
+                options.MimeTypes = new[]
+                {
+                    // Default
+                    "text/plain",
+                    "text/css",
+                    "application/javascript",
+                    "text/html",
+                    "application/xml",
+                    "text/xml",
+                    "application/json",
+                    "text/json",
+                    "text/javascript",
+                    // Custom
+                    "image/svg+xml"
+                };                
+                options.EnableForHttps = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,8 +105,25 @@ namespace ReAl.Template.MaterialAdmin
                 app.UseExceptionHandler("/Account/Error");
             }
 
-            app.UseStaticFiles();
-
+            //Compression
+            app.UseResponseCompression();
+            
+            app.UseStaticFiles(new StaticFileOptions {
+                OnPrepareResponse = content =>
+                {
+                    if(content.File.Name.EndsWith(".js.gz"))
+                    {
+                        content.Context.Response.Headers["Content-Type"] = "text/javascript";
+                        content.Context.Response.Headers["Content-Encoding"] = "gzip";
+                    }
+                    if(content.File.Name.EndsWith(".css.gz"))
+                    {
+                        content.Context.Response.Headers["Content-Type"] = "text/css";
+                        content.Context.Response.Headers["Content-Encoding"] = "gzip";
+                    }
+                }
+            });
+            
             //Adds the authentication middleware to the pipeline
             app.UseAuthentication();
 

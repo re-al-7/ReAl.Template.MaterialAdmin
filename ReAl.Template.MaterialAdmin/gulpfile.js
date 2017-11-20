@@ -7,6 +7,7 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify"),
     merge = require("merge-stream"),
     del = require("del"),
+    gzip = require('gulp-gzip'),
     bundleconfig = require("./bundleconfig.json");
 
 var regex = {
@@ -15,7 +16,19 @@ var regex = {
     js: /\.js$/
 };
 
-gulp.task("min", ["min:js", "min:css", "min:html"]);
+gulp.task("min", ["min:js", "min:css", "min:html", "gzip:js", "gzip:css"]);
+
+gulp.task('gzip:js', function () {
+    return gulp.src('wwwroot/js/integrate.min.js')
+        .pipe(gzip())
+        .pipe(gulp.dest('wwwroot/js/'));
+});
+
+gulp.task('gzip:css', function () {
+    return gulp.src('wwwroot/css/integrate.min.css')
+        .pipe(gzip())
+        .pipe(gulp.dest('wwwroot/css/'));
+});
 
 gulp.task("min:js", function () {
     var tasks = getBundles(regex.js).map(function (bundle) {
